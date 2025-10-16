@@ -4,7 +4,11 @@ from django.views import View
 
 
 def index(request):
-    return HttpResponse("Hello, World from a function-based view")
+    return HttpResponse("<h1>Hello, World from a function-based view</h1>")
+
+
+def about(request):
+    return render(request, "about.html")
 
 
 class StudentProfileView(View):
@@ -16,6 +20,7 @@ class StudentProfileView(View):
 
         return HttpResponse(f"Student profile with id {student_id}")
 
+
 class CourseView(View):
     def get(self, request, *args, **kwargs):
         course_slug = self.kwargs.get('course_slug')
@@ -23,4 +28,4 @@ class CourseView(View):
         if len(course_slug) >= 10:
             return Http404("Course not found")
 
-        return HttpResponse(f"Course with id {course_slug}")
+        return render(request, "course.html", context={"course_slug": course_slug})

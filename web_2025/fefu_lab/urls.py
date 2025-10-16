@@ -3,9 +3,11 @@ from django.urls import path
 from . import views
 from .views import CourseView, StudentProfileView
 
+handler404 = "fefu_lab.views.custom_404_view"
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path("about/", views.about, name="about"),
     path("student/<int:student_id>/",
          StudentProfileView.as_view(), name="student_profile"),
     path("course/<slug:course_slug>/",
