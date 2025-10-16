@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Sparkled Away | Twilight Saga</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom, #0f0f23, #1a1a2e, #16213e);
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></svg>') repeat;
+            animation: sparkle 3s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translate(100px, 100px) rotate(360deg);
+                opacity: 0.1;
+            }
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #d4af37;
+            /* Gold for that vampire sparkle */
+            text-shadow: 0 0 10px #d4af37;
+            margin-bottom: 0.2em;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37, 0 0 30px #d4af37;
+            }
+
+            to {
+                text-shadow: 0 0 20px #d4af37, 0 0 30px #d4af37, 0 0 40px #d4af37;
+            }
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+            opacity: 0.8;
+        }
+
+        .error-message {
+            font-style: italic;
+            color: #b22222;
+            /* Blood red */
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #8b0000;
+            color: #f0f0f0;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .home-link:hover {
+            background: #a52a2a;
+        }
+
+        .twilight-icon {
+            font-size: 6em;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Forest silhouette */
+        .forest {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, #0d1117, transparent);
+            overflow: hidden;
+        }
+
+        .tree {
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid #2d5016;
+            animation: sway 4s ease-in-out infinite;
+        }
+
+        .tree:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .tree:nth-child(2) {
+            left: 30%;
+            animation-delay: 1s;
+            height: 80px;
+            border-bottom-width: 80px;
+        }
+
+        .tree:nth-child(3) {
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .tree:nth-child(4) {
+            left: 90%;
+            animation-delay: 3s;
+            height: 120px;
+            border-bottom-width: 120px;
+        }
+
+        @keyframes sway {
+
+            0%,
+            100% {
+                transform: rotate(-2deg);
+            }
+
+            50% {
+                transform: rotate(2deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="twilight-icon">🧛‍♂️</div>
+        <h1>404</h1>
+        <p class="error-message">This page has sparkled away into the misty forests of Forks.</p>
+        <p>Perhaps Edward took it for a midnight hunt, or Bella accidentally stumbled upon it during her clumsy
+            adventures. Either way, it's lost in the Twilight.</p>
+        <a href="/" class="home-link">Return to the Cullens' Coven (Home)</a>
+    </div>
+    <div class="forest">
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+    </div>
+
+    <script>
+        // Simple JS for a subtle sparkle effect on click
+        document.addEventListener('click', function (e) {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'absolute';
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+            sparkle.style.width = '4px';
+            sparkle.style.height = '4px';
+            sparkle.style.background = '#d4af37';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '10';
+            sparkle.style.animation = 'sparkle 1s ease-out forwards';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                document.body.removeChild(sparkle);
+            }, 1000);
+        });
+
+        // Add sparkle style dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkle {
+                0% { opacity: 1; transform: scale(0) rotate(0deg); }
+                100% { opacity: 0; transform: scale(2) rotate(180deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

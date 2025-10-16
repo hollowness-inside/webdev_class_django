@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twilight Main Characters</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a0000 50%, #8B0000 100%);
+            color: #f0e6ff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: #FF1493;
+            font-family: 'Cinzel', serif;
+            font-size: 3em;
+            text-shadow: 3px 3px 6px #000, 0 0 20px #FF1493;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .character {
+            background: linear-gradient(145deg, rgba(139, 0, 0, 0.2), rgba(25, 0, 0, 0.3));
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 20, 147, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .character:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+        }
+
+        h2 {
+            color: #FFD700;
+            font-family: 'Cinzel', serif;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        #secret {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 20, 147, 0.1);
+            border-radius: 10px;
+            border-left: 5px solid #FF1493;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                border-left-color: #FF1493;
+                box-shadow: 0 0 5px rgba(255, 20, 147, 0.3);
+            }
+
+            to {
+                border-left-color: #FFD700;
+                box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>About Characters from Twilight</h1>
+
+        <div class="character">
+            <h2>Bella Swan</h2>
+            <p>Isabella "Bella" Swan is the protagonist, a clumsy yet irresistibly alluring high school student who moves to Forks, Washington, and becomes entangled in a world of vampires and werewolves, her innocent charm drawing forbidden desires from the shadows.</p>
+        </div>
+
+        <div class="character">
+            <h2>Edward Cullen</h2>
+            <p>Edward Cullen is a brooding, telepathic vampire who falls into a steamy, all-consuming passion with Bella, wrestling with his immortal cravings and the intoxicating pull of her warm, human scent that tests his every restraint.</p>
+        </div>
+
+        <div class="character">
+            <h2>Jacob Black</h2>
+            <p>Jacob Black is a loyal Quileute tribe member who transforms into a werewolf and forges a heated, primal connection with Bella, his sculpted form and fiery protectiveness sparking jealous rivalries that simmer with unspoken tension.</p>
+        </div>
+
+        <div class="character">
+            <h2>Alice Cullen</h2>
+            <p>Alice Cullen is Edward's adoptive sister, a vampire with the gift of precognition, known for her bubbly allure and a playful, flirtatious style that hints at visions of tantalizing futures yet to unfold.</p>
+        </div>
+
+        <div class="character">
+            <h2>Jasper Hale</h2>
+            <p>Jasper Hale, Alice's devoted mate, is a vampire skilled in stirring subtle waves of desire and calm, his scarred history and intense gaze weaving a web of emotional intimacy that leaves hearts racing.</p>
+        </div>
+
+        <div class="character">
+            <h2>Rosalie Hale</h2>
+            <p>Rosalie Hale is a stunningly voluptuous vampire who resents her eternal beauty's curse, her sultry presence and longing for lost mortal pleasures adding a layer of seductive melancholy to the family's dynamics.</p>
+        </div>
+
+        <div class="character">
+            <h2>Emmett Cullen</h2>
+            <p>Emmett Cullen is the strongest of the Cullens, a fun-loving vampire with a bear-like, powerfully built frame who revels in playful tussles and the thrill of close, adrenaline-fueled encounters.</p>
+        </div>
+
+        <div class="character">
+            <h2>Carlisle Cullen</h2>
+            <p>Dr. Carlisle Cullen is the patriarch of the Cullen family, a compassionate vampire doctor whose gentle touch and wise counsel offer a soothing, almost tender guidance through the temptations of their immortal existence.</p>
+        </div>
+
+        <div class="character">
+            <h2>Esme Cullen</h2>
+            <p>Esme Cullen is the nurturing matriarch, a vampire whose warm, enveloping affection stems from her tragic past, providing a comforting embrace that binds the coven with an undercurrent of deep, familial sensuality.</p>
+        </div>
+    </div>
+</body>
+
+</html>

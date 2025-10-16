@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 - Eternal Eclipse | Twilight Saga</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(to bottom, #000011, #0a0a1a, #1c0f2a);
+            color: #e6e6fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="0.5" fill="%23e6e6fa" opacity="0.05"/></svg>') repeat;
+            animation: twinkle 4s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.05;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translate(50px, 50px) rotate(180deg);
+                opacity: 0.05;
+            }
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .edward-image {
+            width: 200px;
+            height: auto;
+            border-radius: 50%;
+            margin: 20px 0;
+            filter: sepia(0.2) hue-rotate(200deg) saturate(1.2);
+            animation: brood 3s ease-in-out infinite alternate;
+            box-shadow: 0 0 20px rgba(147, 112, 219, 0.5);
+        }
+
+        @keyframes brood {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.05);
+            }
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #9370db;
+            /* Mystic purple for the eternal night */
+            text-shadow: 0 0 15px #9370db;
+            margin-bottom: 0.2em;
+            animation: eclipse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes eclipse {
+            from {
+                text-shadow: 0 0 15px #9370db, 0 0 25px #9370db, 0 0 35px #9370db;
+            }
+
+            to {
+                text-shadow: 0 0 25px #9370db, 0 0 35px #9370db, 0 0 45px #9370db;
+            }
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+            opacity: 0.8;
+        }
+
+        .error-message {
+            font-style: italic;
+            color: #dc143c;
+            /* Crimson for server "blood" */
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #4b0082;
+            color: #e6e6fa;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .home-link:hover {
+            background: #6a0dad;
+        }
+
+        .twilight-icon {
+            font-size: 6em;
+            margin: 20px 0;
+            animation: throb 2.5s infinite;
+        }
+
+        @keyframes throb {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                transform: scale(1.1) rotate(5deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        /* Moonlit forest silhouette */
+        .forest {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 35%;
+            background: linear-gradient(to top, #0a0a1a, transparent);
+            overflow: hidden;
+        }
+
+        .tree {
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 120px solid #1b4332;
+            animation: whisper 5s ease-in-out infinite;
+        }
+
+        .tree:nth-child(1) {
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .tree:nth-child(2) {
+            left: 25%;
+            animation-delay: 1.5s;
+            height: 90px;
+            border-bottom-width: 90px;
+        }
+
+        .tree:nth-child(3) {
+            left: 60%;
+            animation-delay: 2.5s;
+        }
+
+        .tree:nth-child(4) {
+            left: 80%;
+            animation-delay: 3.5s;
+            height: 140px;
+            border-bottom-width: 140px;
+        }
+
+        @keyframes whisper {
+
+            0%,
+            100% {
+                transform: rotate(-1deg);
+            }
+
+            50% {
+                transform: rotate(1deg);
+            }
+        }
+
+        .moon {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #fff 20%, #e6e6fa 40%, transparent 60%);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: drift 10s linear infinite;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-20px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="moon"></div>
+    <div class="container">
+        <img src="https://i.insider.com/5da8aa7a695b581773751225?width=700" alt="Edward Cullen in eternal watch"
+            class="edward-image">
+        <div class="twilight-icon">🌕</div>
+        <h1>500</h1>
+        <p class="error-message">The server has entered an eternal eclipse—much like a vampire caught in the midday sun.
+        </p>
+        <p>Jacob might have phased and crashed it, or Alice's visions overloaded the system. Fear not; the Cullens are
+            eternal, and so is our recovery.</p>
+        <a href="/" class="home-link">Eclipse Lifted (Home)</a>
+    </div>
+    <div class="forest">
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+    </div>
+
+    <script>
+        // JS for a moonbeam sparkle on hover
+        const link = document.querySelector('.home-link');
+        link.addEventListener('mouseenter', function () {
+            const beam = document.createElement('div');
+            beam.style.position = 'absolute';
+            beam.style.top = '20%';
+            beam.style.right = '20%';
+            beam.style.width = '2px';
+            beam.style.height = '100px';
+            beam.style.background = 'linear-gradient(to bottom, #e6e6fa, transparent)';
+            beam.style.pointerEvents = 'none';
+            beam.style.zIndex = '10';
+            beam.style.animation = 'beam 1s ease-out forwards';
+            document.body.appendChild(beam);
+
+            setTimeout(() => {
+                document.body.removeChild(beam);
+            }, 1000);
+        });
+
+        // Add beam style dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes beam {
+                0% { opacity: 0; height: 0; }
+                100% { opacity: 0.7; height: 100px; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
