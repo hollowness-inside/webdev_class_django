@@ -17,7 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import fefu_lab
+
 urlpatterns = [
-    path("fefu_lab/", include("fefu_lab.urls")),
+    path("", include("fefu_lab.urls")),
     path('admin/', admin.site.urls),\
 ]
