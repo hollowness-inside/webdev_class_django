@@ -4,11 +4,11 @@ from django.views import View
 
 
 def index(request):
-    return HttpResponse("<h1>Hello, World from a function-based view</h1>")
+    return render(request, "web_2025/index.html")
 
 
 def about(request):
-    return render(request, "about.html")
+    return render(request, "web_2025/about.html")
 
 
 class StudentProfileView(View):
