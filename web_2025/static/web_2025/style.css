@@ -35,7 +35,7 @@ body {
     z-index: 100;
 }
 
-.navigation a {
+.navigation .hrefs a {
     color: white;
     text-decoration: none;
     font-family: system-ui;
@@ -49,7 +49,7 @@ body {
     text-wrap: nowrap;
 }
 
-.navigation a:hover {
+.navigation .hrefs a:hover {
     background: #ffffff40;
 }
 
@@ -84,7 +84,7 @@ body {
     border: 1px solid #ffffff20;
     backdrop-filter: blur(80px);
     border-radius: 1rem;
-    padding: 1rem;
+    padding: 2rem 1rem;
     min-height: 100px;
 
     max-width: 80%;
