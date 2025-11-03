@@ -9,26 +9,28 @@
 <div class="card feedback-card">
     <img src="/static/web_2025/handy.png" alt="Twilight">
     <p style="font-size: large; font-weight: bold;">Обратная связь</p>
-    <p style="color: #eee; margin-bottom: 2rem;">Очаровательно! Увидеть то, что видел ты, до того, как это случилось.</p>
+    <p style="color: #eee; margin-bottom: 2rem;">
+        Очаровательно! Увидеть то, что видел ты, до того, как это случилось.
+    </p>
 
-    <div class="input-field">
-        <label for="name">Имя</label>
-        <input id="name" type="text" placeholder="Имя">
-    </div>
+    <form style="display: contents;">
+        {% csrf_token %}
 
-    <div class="input-field">
-        <label for="email">Email</label>
-        <input id="email" type="text" placeholder="Email">
-    </div>
+        {% for field in form %}
+        <div class="input-field">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.errors %}
+            <div class="error">
+                {% for error in field.errors %}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
 
-    <div class="input-field">
-        <label for="subject">Тема сообщения</label>
-        <input id="subject" type="text" placeholder="Тема сообщения">
-    </div>
-
-    <div class="input-field">
-        <label for="message">Текст сообщения</label>
-        <textarea id="message" type="text" placeholder="Текст сообщения"></textarea>
-    </div>
+        <button type="submit">Войти</button>
+    </form>
 </div>
 {% endblock %}

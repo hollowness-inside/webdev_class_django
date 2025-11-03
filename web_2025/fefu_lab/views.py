@@ -37,11 +37,14 @@ def about(request):
 
 
 def feedback(request):
-    return render(request, "web_2025/feedback.html")
+    if request.method == 'POST':
+        form = forms.FeedbackForm(request.POST)
+        if form.is_valid():
+            return HttpResponse("Correct")
+    else:
+        form = forms.FeedbackForm()
 
-
-def feedback(request):
-    return render(request, "web_2025/feedback.html")
+    return render(request, 'web_2025/feedback.html', context={'form': form})
 
 
 def student_profile(request, student_id: int):

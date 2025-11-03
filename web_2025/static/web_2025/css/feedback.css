@@ -17,3 +17,7 @@
 .feedback-card .input-field label {
     width: 100%;
 }
+
+button {
+    max-width: 20rem;
+}
