@@ -1,7 +1,7 @@
 from django.urls import path
 
 from . import views
-from .views import CourseView, StudentProfileView
+from .views import CourseView
 
 handler404 = "fefu_lab.views.custom_404_view"
 
@@ -14,7 +14,8 @@ urlpatterns = [
     
     path("about/", views.about, name="about"),
     path("student/<int:student_id>/",
-         StudentProfileView.as_view(), name="student_profile"),
+         views.student_profile, name="student_profile"),
+         
     path("course/<slug:course_slug>/",
          CourseView.as_view(), name="course")
 ]

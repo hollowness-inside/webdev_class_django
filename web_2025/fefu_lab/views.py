@@ -1,6 +1,7 @@
-from django.http import Http404, HttpResponse
+from django.http import Http404
 from django.shortcuts import render
 from django.views import View
+from . import constants
 
 
 def index(request):
@@ -23,14 +24,18 @@ def feedback(request):
     return render(request, "web_2025/feedback.html")
 
 
-class StudentProfileView(View):
-    def get(self, request, *args, **kwargs):
-        student_id = self.kwargs.get('student_id')
+def feedback(request):
+    return render(request, "web_2025/feedback.html")
 
-        if student_id > 100:
-            return Http404("Student not found")
 
-        return HttpResponse(f"Student profile with id {student_id}")
+def student_profile(request, student_id: int):
+    if student_id > 100:
+        return Http404("Student not found")
+
+    if (context := constants.STUDENTS_DATA.get(student_id, None)) is not None:
+        return render(request, "web_2025/student.html", context=context)
+
+    return render(request, "web_2025/student-not-found.html")
 
 
 class CourseView(View):

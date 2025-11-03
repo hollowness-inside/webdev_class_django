@@ -1,0 +1,29 @@
+.student-card {
+    width: 80%;
+    overflow: hidden;
+    border-radius: 1rem;
+    backdrop-filter: blur(100px);
+    border: 1px solid #ffffff20;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.student-card img {
+    width: 26rem;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+.student-content h1 {
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.student-content {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
