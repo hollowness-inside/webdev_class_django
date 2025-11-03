@@ -10,6 +10,9 @@ def index(request):
 def about(request):
     return render(request, "web_2025/about.html")
 
+def feedback(request):
+    return render(request, "web_2025/feedback.html")
+
 
 class StudentProfileView(View):
     def get(self, request, *args, **kwargs):
