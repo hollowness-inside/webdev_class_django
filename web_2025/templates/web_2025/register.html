@@ -1,0 +1,42 @@
+{% extends "./base_generic.html" %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'web_2025/register.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="card register-card">
+    <div style="width: 25rem; height: 100%;">
+        <img src="{% static 'web_2025/jacob.png' %}" alt="Jacob" class="register-image">
+    </div>
+
+    <div class="form-content">
+        <p style="font-size: large; font-weight: bold;">Регистрация</p>
+        <p style="color: #eee; margin-bottom: 2rem; width: 100% !important;">Мы с нетерпением ждём твоего превращения.
+        </p>
+
+        <div class="input-field">
+            <label for="name">Логин</label>
+            <input id="name" type="text" placeholder="Имя">
+        </div>
+
+        <div class="input-field">
+            <label for="email">Email</label>
+            <input id="email" type="text" placeholder="Email">
+        </div>
+
+        <div class="input-field">
+            <label for="password">Пароль</label>
+            <input id="password" type="text" placeholder="Пароль">
+        </div>
+
+        <div class="input-field">
+            <label for="password-repeat">Подтверждение пароля</label>
+            <input id="password-repeat" type="text" placeholder="Подтверждение пароля">
+        </div>
+
+        <button>Зарегистрироваться</button>
+    </div>
+</div>
+{% endblock %}
