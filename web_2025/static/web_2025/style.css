@@ -18,7 +18,7 @@ body {
 
 .navigation {
     position: sticky;
-    top: 0;
+    top: 20px;
     width: 100%;
     border: 1px solid #ffffff20;
     display: flex;
@@ -32,6 +32,7 @@ body {
     justify-items: center;
     align-items: center;
     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    z-index: 100;
 }
 
 .navigation a {
@@ -68,8 +69,17 @@ body {
 }
 
 .content {
-    width: fit-content;
+    width: 80%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+    color: color-mix(in oklab, white 90%, transparent);
+    margin: 0 auto;
+}
+
+.content .card {
     background-color: #ffffff10;
     border: 1px solid #ffffff20;
     backdrop-filter: blur(80px);
@@ -77,11 +87,13 @@ body {
     padding: 1rem;
     min-height: 100px;
 
+    max-width: 80%;
+    width: 100%;
+
     display: grid;
     gap: 2rem;
     justify-items: center;
-    color: color-mix(in oklab, white 90%, transparent);
-    margin: 0 auto;
+    align-items: center;
 }
 
 .content p {
