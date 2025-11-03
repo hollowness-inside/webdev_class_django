@@ -1,6 +1,8 @@
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from django.views import View
+
+from . import forms
 from . import constants
 
 
@@ -9,11 +11,25 @@ def index(request):
 
 
 def register(request):
-    return render(request, "web_2025/register.html")
+    if request.method == 'POST':
+        form = forms.RegistrationForm(request.POST)
+        if form.is_valid():
+            return HttpResponse("Correct")
+    else:
+        form = forms.RegistrationForm()
+
+    return render(request, 'web_2025/register.html', context={'form': form})
 
 
 def login(request):
-    return render(request, "web_2025/login.html")
+    if request.method == 'POST':
+        form = forms.LoginForm(request.POST)
+        if form.is_valid():
+            return HttpResponse("Correct")
+    else:
+        form = forms.LoginForm()
+
+    return render(request, 'web_2025/login.html', context={'form': form})
 
 
 def about(request):

@@ -16,27 +16,25 @@
         <p style="color: #eee; margin-bottom: 2rem; width: 100% !important;">Мы с нетерпением ждём твоего превращения.
         </p>
 
-        <div class="input-field">
-            <label for="name">Логин</label>
-            <input id="name" type="text" placeholder="Имя">
-        </div>
+        <form style="display: contents;">
+            {% csrf_token %}
 
-        <div class="input-field">
-            <label for="email">Email</label>
-            <input id="email" type="text" placeholder="Email">
-        </div>
-
-        <div class="input-field">
-            <label for="password">Пароль</label>
-            <input id="password" type="text" placeholder="Пароль">
-        </div>
-
-        <div class="input-field">
-            <label for="password-repeat">Подтверждение пароля</label>
-            <input id="password-repeat" type="text" placeholder="Подтверждение пароля">
-        </div>
-
-        <button>Зарегистрироваться</button>
+            {% for field in form %}
+            <div class="input-field">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                <div class="error">
+                    {% for error in field.errors %}
+                    <div>{{ error }}</div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            
+            <button type="submit">Зарегистрироваться</button>
+        </form>
     </div>
 </div>
 {% endblock %}
