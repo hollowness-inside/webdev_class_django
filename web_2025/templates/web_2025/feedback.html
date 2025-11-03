@@ -1,0 +1,34 @@
+{% extends "./base_generic.html" %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'web_2025/feedback.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="card feedback-card">
+    <img src="/static/web_2025/handy.png" alt="Twilight">
+    <p style="font-size: large; font-weight: bold;">Обратная связь</p>
+    <p style="color: #eee">Мы всегда рады услышать ваше мнение</p>
+
+    <div class="input-field">
+        <label for="name">Имя</label>
+        <input id="name" type="text" placeholder="Имя">
+    </div>
+
+    <div class="input-field">
+        <label for="email">Email</label>
+        <input id="email" type="text" placeholder="Email">
+    </div>
+
+    <div class="input-field">
+        <label for="subject">Тема сообщения</label>
+        <input id="subject" type="text" placeholder="Тема сообщения">
+    </div>
+
+    <div class="input-field">
+        <label for="message">Текст сообщения</label>
+        <textarea id="message" type="text" placeholder="Текст сообщения"></textarea>
+    </div>
+</div>
+{% endblock %}

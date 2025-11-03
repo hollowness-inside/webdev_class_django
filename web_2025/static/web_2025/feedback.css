@@ -1,0 +1,65 @@
+.feedback-card {
+    gap: 1rem !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.feedback-card img {
+    height: 6rem;
+}
+
+.feedback-card .input-field {
+    display: flex;
+    flex-direction: column;
+    max-width: 20rem;
+    width: 100%;
+    align-items: center;
+}
+
+.feedback-card .input-field label {
+    width: 100%;
+}
+
+
+.feedback-card .input-field input {
+    padding: 0.5rem 1rem;
+    backdrop-filter: blur(40px);
+    background-color: #ffffff20;
+    color: white;
+    border-radius: 0.5rem;
+    border: 1px solid #ffffff20;
+    margin: 5px 0;
+    width: 100%;
+}
+
+.feedback-card .input-field input::placeholder {
+    color: #ffffff80;
+}
+
+.feedback-card .input-field input:focus {
+    box-shadow: 0 0 0 4px color-mix(in oklab, black 10%, transparent);
+    outline: none;
+}
+
+
+
+.feedback-card .input-field textarea {
+    padding: 0.5rem 1rem;
+    backdrop-filter: blur(40px);
+    background-color: #ffffff20;
+    color: white;
+    border-radius: 0.5rem;
+    border: 1px solid #ffffff20;
+    margin: 5px 0;
+    width: 100%;
+    min-height: 4rem;
+}
+
+.feedback-card .input-field textarea::placeholder {
+    color: #ffffff80;
+}
+
+.feedback-card .input-field textarea:focus {
+    box-shadow: 0 0 0 4px color-mix(in oklab, black 10%, transparent);
+    outline: none;
+}
