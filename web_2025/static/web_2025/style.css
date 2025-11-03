@@ -142,3 +142,48 @@ body {
     font-size: x-large;
     font-weight: bolder;
 }
+
+input,
+textarea {
+    padding: 0.5rem 1rem;
+    backdrop-filter: blur(40px);
+    background-color: #ffffff20;
+    color: white;
+    border-radius: 0.5rem;
+    border: 1px solid #ffffff20;
+    margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 5rem;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+    color: #ffffff80;
+}
+
+input:focus,
+textarea:focus {
+    box-shadow: 0 0 0 4px color-mix(in oklab, black 10%, transparent);
+    outline: none;
+}
+
+button {
+    background-color: #00000057;
+    color: white;
+    width: 100%;
+    padding: 0.5rem;
+    outline: none;
+    border: 1px solid #ffffff3d;
+    border-radius: 0.5rem;
+    transition: background-color 100ms;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00000080;
+}
