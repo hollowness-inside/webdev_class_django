@@ -1,5 +1,6 @@
 body {
-    background-image: url("../web_2025/twilight.jpg");
+    background-image: url("/static/web_2025/twilight.jpg");
+    background-repeat: no-repeat;
     background-color: #293049;
     background-attachment: fixed;
     padding: 0;
