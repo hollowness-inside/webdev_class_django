@@ -6,11 +6,18 @@ from django.views import View
 def index(request):
     return render(request, "web_2025/index.html")
 
+
 def register(request):
     return render(request, "web_2025/register.html")
 
+
+def login(request):
+    return render(request, "web_2025/login.html")
+
+
 def about(request):
     return render(request, "web_2025/about.html")
+
 
 def feedback(request):
     return render(request, "web_2025/feedback.html")

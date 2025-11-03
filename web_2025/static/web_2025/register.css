@@ -4,6 +4,7 @@
     align-items: flex-end;
     gap: 0 !important;
     position: relative;
+    justify-content: center;
 }
 
 .register-image {

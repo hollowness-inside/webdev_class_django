@@ -1,0 +1,37 @@
+{% extends "./base_generic.html" %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'web_2025/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="card login-card">
+    <div class="form-content">
+        <p style="font-size: large; font-weight: bold;">Вход</p>
+        <p style="color: #eee; margin-bottom: 2rem; width: 100% !important;">Я бы хотел знать, являешься ли ты
+            исключением из моих правил.
+        </p>
+
+        <div class="input-field">
+            <label for="name">Логин</label>
+            <input id="name" type="text" placeholder="Имя">
+        </div>
+
+        <div class="input-field">
+            <label for="email">Email</label>
+            <input id="email" type="text" placeholder="Email">
+        </div>
+
+        <div class="input-field">
+            <label for="password">Пароль</label>
+            <input id="password" type="text" placeholder="Пароль">
+        </div>
+
+        <button>Войти</button>
+    </div>
+    <div style="width: 25rem; height: 100%;">
+        <img src="{% static 'web_2025/edward.png' %}" alt="Edward" class="login-image">
+    </div>
+</div>
+{% endblock %}
