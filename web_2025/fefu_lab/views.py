@@ -57,11 +57,5 @@ def student_profile(request, student_id: int):
     return render(request, "web_2025/student-not-found.html")
 
 
-class CourseView(View):
-    def get(self, request, *args, **kwargs):
-        course_slug = self.kwargs.get('course_slug')
-
-        if len(course_slug) >= 10:
-            return Http404("Course not found")
-
-        return render(request, "course.html", context={"course_slug": course_slug})
+def course(request, course_slug):
+    return render(request, "web_2025/course.html", context={"course_slug": course_slug})

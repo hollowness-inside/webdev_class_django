@@ -1,310 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "./base_generic.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>403 - Forbidden Slug Trail | Twilight Saga</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-            background: linear-gradient(to bottom, #2c1810, #3d291a, #5d4037);
-            color: #f5f5dc;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'web_2025/css/ability.css' %}">
+{% endblock %}
 
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 50 Q 60 40 70 50 T 90 50 Q 80 60 70 50 T 50 50 Q 40 40 30 50 T 10 50 Q 20 60 30 50 T 50 50" fill="none" stroke="%23f5f5dc" stroke-width="0.5" opacity="0.03"/></svg>') repeat;
-            animation: trail 5s infinite linear;
-            pointer-events: none;
-        }
-
-        @keyframes trail {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.03;
-            }
-
-            50% {
-                opacity: 0.1;
-            }
-
-            100% {
-                transform: translate(20px, 20px) scale(1.1);
-                opacity: 0.03;
-            }
-        }
-
-        .container {
-            text-align: center;
-            z-index: 1;
-            max-width: 700px;
-            padding: 20px;
-        }
-
-        .slug-container {
-            position: relative;
-            margin: 20px 0;
-            height: 200px;
-        }
-
-        .slug {
-            font-size: 10em;
-            color: #8b4513;
-            /* Earthy brown for the slug */
-            text-shadow: 0 0 10px #8b4513, 0 5px 5px rgba(0, 0, 0, 0.3);
-            animation: slither 4s ease-in-out infinite alternate;
-            display: block;
-            margin: 0 auto;
-            line-height: 1;
-        }
-
-        @keyframes slither {
-            from {
-                transform: translateX(-10px) rotate(-2deg);
-            }
-
-            to {
-                transform: translateX(10px) rotate(2deg);
-            }
-        }
-
-        .slug-trail {
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 5px;
-            background: linear-gradient(to right, transparent, #d2b48c, transparent);
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: trail-fade 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes trail-fade {
-            from {
-                width: 100px;
-                opacity: 0.4;
-            }
-
-            to {
-                width: 150px;
-                opacity: 0.8;
-            }
-        }
-
-        h1 {
-            font-size: 4em;
-            color: #cd853f;
-            /* Peru for forbidden earth tones */
-            text-shadow: 0 0 12px #cd853f;
-            margin-bottom: 0.2em;
-            animation: forbidden-glow 2.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes forbidden-glow {
-            from {
-                text-shadow: 0 0 12px #cd853f, 0 0 22px #cd853f;
-            }
-
-            to {
-                text-shadow: 0 0 22px #cd853f, 0 0 32px #cd853f, 0 0 42px #cd853f;
-            }
-        }
-
-        p {
-            font-size: 1.2em;
-            margin-bottom: 1em;
-            opacity: 0.85;
-        }
-
-        .error-message {
-            font-style: italic;
-            color: #a0522d;
-            /* Sienna for earthy warning */
-            font-size: 1.5em;
-            margin: 20px 0;
-        }
-
-        .home-link {
-            display: inline-block;
-            padding: 12px 24px;
-            background: #8b4513;
-            color: #f5f5dc;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .home-link:hover {
-            background: #a0522d;
-            transform: scale(1.05);
-        }
-
-        .twilight-icon {
-            font-size: 5em;
-            margin: 20px 0;
-            animation: creep 3s infinite;
-        }
-
-        @keyframes creep {
-            0% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-5px);
-            }
-
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        /* Misty forest background */
-        .forest {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 40%;
-            background: linear-gradient(to top, #2c1810, transparent);
-            overflow: hidden;
-        }
-
-        .tree {
-            position: absolute;
-            bottom: 0;
-            width: 0;
-            height: 0;
-            border-left: 40px solid transparent;
-            border-right: 40px solid transparent;
-            border-bottom: 80px solid #556b2f;
-            animation: rustle 6s ease-in-out infinite;
-        }
-
-        .tree:nth-child(1) {
-            left: 15%;
-            animation-delay: 0s;
-        }
-
-        .tree:nth-child(2) {
-            left: 35%;
-            animation-delay: 1.5s;
-            border-bottom-width: 100px;
-        }
-
-        .tree:nth-child(3) {
-            left: 55%;
-            animation-delay: 3s;
-        }
-
-        .tree:nth-child(4) {
-            left: 75%;
-            animation-delay: 4.5s;
-            border-bottom-width: 60px;
-        }
-
-        @keyframes rustle {
-
-            0%,
-            100% {
-                transform: rotate(-1deg);
-            }
-
-            50% {
-                transform: rotate(1deg);
-            }
-        }
-
-        .mist {
-            position: absolute;
-            top: 20%;
-            width: 100%;
-            height: 20%;
-            background: linear-gradient(to bottom, transparent, rgba(245, 245, 220, 0.1));
-            animation: mist-drift 8s linear infinite;
-        }
-
-        @keyframes mist-drift {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <div class="mist"></div>
-    <div class="container">
-        <div class="twilight-icon">🌲</div>
-        <h1>403</h1>
-        <p class="error-message">Access forbidden—like a mortal stumbling into the Cullens' secrets in the misty woods.
-        </p>
-        <div class="slug-container">
-            <span class="slug">{{ course_slug }}</span>
-            <div class="slug-trail"></div>
+{% block content %}
+<div style="text-align: center;">
+    <p>Сверхспособности</p>
+    <p>Уникальные таланты и силы вампиров</p>
+    <div class="ability-card">
+        <div class="ability-image">
+            <p>Ментальный</p>
+            <p>Телепатия</p>
         </div>
-        <p>Even the lowly garden slug knows better than to cross the vampire trail. Bella's clumsiness couldn't breach
-            this barrier.</p>
-        <a href="/" class="home-link">Retreat to Forks (Home)</a>
+
+        <div class="ability-card-content">
+            <span>Способность читать мысли любого, кто находится в определённом радиусе. Единственное известное
+                исключение — Белла Свон.</span>
+            <hr>
+
+            <div class="ability-card-card">
+                <h1>Носитель</h1>
+                <p>Эдвард Каллен</p>
+            </div>
+
+            <div class="ability-card-card">
+                <h1>Продолжительность</h1>
+                <p>Высокая</p>
+            </div>
+
+            <div class="ability-card-card">
+                <h1>Тип способности</h1>
+                <p>Ментальный</p>
+            </div>
+
+            <div class="ability-card-card">
+                Эта способность является одной из самых редких и мощных среди вампиров, позволяя носителю проникать в
+                самые сокровенные мысли окружающих.
+            </div>
+        </div>
     </div>
-    <div class="forest">
-        <div class="tree"></div>
-        <div class="tree"></div>
-        <div class="tree"></div>
-        <div class="tree"></div>
-    </div>
-
-    <script>
-        // JS for a subtle slime trail on click
-        document.addEventListener('click', function (e) {
-            const slime = document.createElement('div');
-            slime.style.position = 'absolute';
-            slime.style.left = e.clientX + 'px';
-            slime.style.top = e.clientY + 'px';
-            slime.style.width = '20px';
-            slime.style.height = '3px';
-            slime.style.background = '#d2b48c';
-            slime.style.borderRadius = '50%';
-            slime.style.pointerEvents = 'none';
-            slime.style.zIndex = '10';
-            slime.style.animation = 'slime 2s ease-out forwards';
-            document.body.appendChild(slime);
-
-            setTimeout(() => {
-                document.body.removeChild(slime);
-            }, 2000);
-        });
-
-        // Add slime style dynamically
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slime {
-                0% { opacity: 1; transform: scale(1) translateY(0); }
-                100% { opacity: 0; transform: scale(0.5) translateY(10px); }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-</body>
-
-</html>
+</div>
+{% endblock %}
