@@ -2,44 +2,41 @@
 
 {% block extra_head %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'web_2025/css/ability.css' %}">
+<link rel="stylesheet" href="{% static 'web_2025/css/course.css' %}">
 {% endblock %}
 
 {% block content %}
-<div style="text-align: center;">
-    <p>Сверхспособности</p>
-    <p>Уникальные таланты и силы вампиров</p>
+<div style="text-align: center;" class="view">
+    <header>
+        <p>Сверхспособности</p>
+        <p>Уникальные таланты и силы вампиров</p>
+    </header>
     <div class="ability-card">
         <div class="ability-image">
-            <p>Ментальный</p>
-            <p>Телепатия</p>
+            <img style="width: 5rem; max-height: 3rem; object-fit: cover; border-radius: 0.5rem;" src="{{image}}" />
+            <p style="font-size:xx-large; line-height: 0; font-weight: bolder;">{{level}}</p>
+            <p>{{name}}</p>
         </div>
 
         <div class="ability-card-content">
-            <span>Способность читать мысли любого, кто находится в определённом радиусе. Единственное известное
-                исключение — Белла Свон.</span>
+            <span>{{description}}</span>
             <hr>
 
             <div class="ability-card-card">
                 <h1>Носитель</h1>
-                <p>Эдвард Каллен</p>
+                <p>{{instructor}}</p>
             </div>
 
             <div class="ability-card-card">
                 <h1>Продолжительность</h1>
-                <p>Высокая</p>
-            </div>
-
-            <div class="ability-card-card">
-                <h1>Тип способности</h1>
-                <p>Ментальный</p>
-            </div>
-
-            <div class="ability-card-card">
-                Эта способность является одной из самых редких и мощных среди вампиров, позволяя носителю проникать в
-                самые сокровенные мысли окружающих.
+                <p>{{duration}}</p>
             </div>
         </div>
     </div>
+    <footer>
+        <a href="/course/telepathy/">Телепатия</a>
+        <a href="/course/mental-shield/">Ментальный щит</a>
+        <a href="/course/tactile-thought-projection/">Тактильная проекция мыслей</a>
+    </footer>
 </div>
 {% endblock %}

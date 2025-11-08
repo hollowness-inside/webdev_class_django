@@ -6,11 +6,19 @@
 {% endblock %}
 
 {% block content %}
-<div class="student-card">
-    <img src="{{image}}" alt="{{name}}" />
-    <div class="student-content">
-        <h1>{{name}}, {{year}} лет</h1>
-        <p style="text-decoration: underline;">{{status}}</p>
+<div class="card-view">
+    <div class="student-card">
+        <img src="{{image}}" alt="{{name}}" />
+        <div class="student-content">
+            <h1>{{name}}, {{year}} лет</h1>
+            <p style="text-decoration: underline;">{{status}}</p>
+        </div>
+    </div>
+
+    <div class="student-list">
+        <a href="/student/1/">Эдвард Каллен</a>
+        <a href="/student/2/">Белла Свон</a>
+        <a href="/student/3/">Аро Вольтури</a>
     </div>
 </div>
 {% endblock %}

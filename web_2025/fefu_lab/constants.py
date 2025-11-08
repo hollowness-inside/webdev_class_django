@@ -29,7 +29,7 @@ COURSES_DATA = {
         "description": "Способность читать мысли любого, кто находится в определённом радиусе. Единственное известное исключение — Белла Свон.",
         "instructor": "Эдвард Каллен",
         "level": "Ментальный",
-        "image": "https://example.com/telepathy_icon.jpg"
+        "image": "https://cdn-icons-png.flaticon.com/512/648/648027.png"
     },
     "mental-shield": {
         "name": "Ментальный щит",
@@ -37,7 +37,7 @@ COURSES_DATA = {
         "description": "Полная защита разума от любого ментального воздействия, включая чтение мыслей Аро и причинение боли Джейн.",
         "instructor": "Белла Каллен",
         "level": "Защитный",
-        "image": "https://example.com/shield_icon.jpg"
+        "image": "https://marketplace.canva.com/OaUzg/MAFT81OaUzg/1/tl/canva-shield-icon-MAFT81OaUzg.png"
     },
     "tactile-thought-projection": {
         "name": "Тактильная проекция мыслей",
@@ -45,6 +45,6 @@ COURSES_DATA = {
         "description": "Чтение всех мыслей, которые когда-либо были у человека или вампира, через физический контакт.",
         "instructor": "Аро Вольтури",
         "level": "Ментальный",
-        "image": "https://example.com/tactile_thought_icon.jpg"
+        "image": "https://static.wikia.nocookie.net/twilightsaga/images/4/4d/Memory-power-nessie.jpg/revision/latest/scale-to-width-down/1200?cb=20130228081923"
     }
 }

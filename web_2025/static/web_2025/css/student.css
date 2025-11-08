@@ -1,3 +1,11 @@
+.card-view {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-content: center;
+    align-items: center;
+}
+
 .student-card {
     width: 80%;
     overflow: hidden;
@@ -21,9 +29,33 @@
 }
 
 .student-content {
-    width: 100%;
+    width: 40rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.student-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.student-list a {
+    text-decoration: none;
+    color: white;
+    border-radius: 1rem;
+    height: max-content;
+    width: 12rem;
+    height: 4rem;
+    backdrop-filter: blur(100px);
+    font-weight: bolder;
+    text-align: center;
+    border: 1px solid #ffffff20;
+    line-height: 4rem;
+    transition: background-color 250ms;
+}
+
+.student-list a:hover {
+    background-color: #ffffff20;
 }

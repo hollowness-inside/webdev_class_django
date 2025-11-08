@@ -54,8 +54,11 @@ def student_profile(request, student_id: int):
     if (context := constants.STUDENTS_DATA.get(student_id, None)) is not None:
         return render(request, "web_2025/student.html", context=context)
 
-    return render(request, "web_2025/student-not-found.html")
+    return render(request, "web_2025/base-404.html", context={"word": "студента"})
 
 
 def course(request, course_slug):
-    return render(request, "web_2025/course.html", context={"course_slug": course_slug})
+    if (context := constants.COURSES_DATA.get(course_slug, None)) is not None:
+        return render(request, "web_2025/course.html", context=context)
+
+    return render(request, "web_2025/base-404.html", context={"word": "курса"})
