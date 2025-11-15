@@ -60,6 +60,7 @@ class Command(BaseCommand):
         # Создание Мемберов (студентов)
         members = [
             Member(
+                image='/static/web_2025/student/bella.jpg',
                 first_name='Белла',
                 last_name='Свон',
                 email='bella.swan@forks.com',
@@ -67,6 +68,7 @@ class Command(BaseCommand):
                 clan='CUL'
             ),
             Member(
+                image='/static/web_2025/student/edward.jpg',
                 first_name='Эдвард',
                 last_name='Каллен',
                 email='edward.cullen@forks.com',
@@ -74,6 +76,7 @@ class Command(BaseCommand):
                 clan='CUL'
             ),
             Member(
+                image='/static/web_2025/student/alice.webp',
                 first_name='Элис',
                 last_name='Каллен',
                 email='alice.cullen@forks.com',
@@ -81,6 +84,7 @@ class Command(BaseCommand):
                 clan='CUL'
             ),
             Member(
+                image='/static/web_2025/student/jasper.jpg',
                 first_name='Джаспер',
                 last_name='Хейл',
                 email='jasper.hale@forks.com',
@@ -88,6 +92,7 @@ class Command(BaseCommand):
                 clan='CUL'
             ),
             Member(
+                image='/static/web_2025/student/rosalie.webp',
                 first_name='Розали',
                 last_name='Хейл',
                 email='rosalie.hale@forks.com',
@@ -95,6 +100,7 @@ class Command(BaseCommand):
                 clan='CUL'
             ),
             Member(
+                image='/static/web_2025/student/emmet.jpg',
                 first_name='Эммет',
                 last_name='Каллен',
                 email='emmett.cullen@forks.com',
@@ -102,6 +108,7 @@ class Command(BaseCommand):
                 clan='CUL'
             ),
             Member(
+                image='/static/web_2025/student/jacob.webp',
                 first_name='Джейкоб',
                 last_name='Блэк',
                 email='jacob.black@lapush.com',
@@ -109,6 +116,7 @@ class Command(BaseCommand):
                 clan='QUI'
             ),
             Member(
+                image='/static/web_2025/student/seth.jpg',
                 first_name='Сет',
                 last_name='Клируотер',
                 email='seth.clearwater@lapush.com',

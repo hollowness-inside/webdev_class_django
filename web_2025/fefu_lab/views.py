@@ -64,14 +64,13 @@ def student_profile(request, student_id: int):
 
     student = models.Member.objects.filter(id=student_id).first()
     if student is not None:
-        print('STUDENTATATTATA', student)
         everyone_else = models.Member.objects.exclude(id=student_id)
         return render(request, "web_2025/student.html", context={
             "student": student,
             "everyone_else": everyone_else
         })
 
-    return render(request, "web_2025/all-students.html", context={"word": "студента"})
+    return render(request, "web_2025/all_students.html", context={"word": "студента"})
 
 
 def course(request, course_slug):

@@ -8,7 +8,7 @@
 {% block content %}
 <div class="card-view">
     <div class="student-card">
-        <img src="/static/web_2025/smn.png" alt="{{student}}" />
+        <img src="{{student.image}}" alt="{{student}}" />
         <div class="student-content">
             <h1>{{student.first_name}} {{student.last_name}}
                 <br>ДР: {{student.birth_date}} лет
