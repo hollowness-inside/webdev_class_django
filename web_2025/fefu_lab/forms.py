@@ -1,18 +1,10 @@
 from django import forms
 
 
-def clean_name(self):
-    name = self.cleaned_data['name']
-    if len(name.strip()) < 2:
-        raise forms.ValidationError("Имя должно содержать минимум 2 символа")
-    return name.strip()
-
-
 class RegistrationForm(forms.Form):
     username = forms.CharField(
         max_length=50,
         label='Логин',
-        validators=[clean_name],
         widget=forms.TextInput(attrs={'placeholder': 'Логин'})
     )
     email = forms.EmailField(
@@ -29,12 +21,18 @@ class RegistrationForm(forms.Form):
             attrs={'placeholder': 'Подтверждение пароля'})
     )
 
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if len(username) < 4:
+            raise forms.ValidationError(
+                "Имя должно содержать минимум 4 символа")
+        return username
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(
         max_length=50,
         label='Логин',
-        validators=[clean_name],
         widget=forms.TextInput(attrs={'placeholder': 'Логин'})
     )
     email = forms.EmailField(
@@ -45,6 +43,13 @@ class LoginForm(forms.Form):
         label='Пароль',
         widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'})
     )
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if len(username) < 4:
+            raise forms.ValidationError(
+                "Имя должно содержать минимум 4 символа")
+        return username
 
 
 class FeedbackForm(forms.Form):
