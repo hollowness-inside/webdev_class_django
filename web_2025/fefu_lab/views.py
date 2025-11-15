@@ -65,9 +65,6 @@ CLANS = {
 
 
 def student_profile(request, student_id: int):
-    if student_id > 100:
-        return Http404("Student not found")
-
     student = models.Member.objects.filter(id=student_id).first()
     if student is not None:
         everyone_else = models.Member.objects.exclude(id=student_id)
@@ -78,7 +75,8 @@ def student_profile(request, student_id: int):
             "everyone_else": everyone_else
         })
 
-    return render(request, "web_2025/all_students.html", context={"word": "студента"})
+    students = models.Member.objects.filter(is_active=True)
+    return render(request, "web_2025/all_students.html", context={"students": students})
 
 
 def course(request, course_slug):

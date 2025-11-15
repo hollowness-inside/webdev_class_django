@@ -6,11 +6,15 @@
 {% endblock %}
 
 {% block content %}
-<div class="student-card">
-    <img src="{{image}}" alt="{{name}}" />
-    <div class="student-content">
-        <h1>{{name}}, {{year}} лет</h1>
-        <p style="text-decoration: underline;">{{status}}</p>
-    </div>
+<div class="student-card" style="padding: 1rem;flex-direction:column !important;">
+    <h1>Все студенты</h1>
+
+    <ul style="gap: 0.5rem; display: grid;">
+        {% for st in students %}
+        <li><a style="text-decoration: underline; color:cornflowerblue;" href="/student/{{st.id}}/">{{st.first_name}}
+                {{st.last_name}} ({{st.clan}})</aa>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
