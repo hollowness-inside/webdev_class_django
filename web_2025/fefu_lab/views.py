@@ -4,10 +4,15 @@ from django.views import View
 
 from . import forms
 from . import constants
+from . import models
 
 
 def index(request):
-    return render(request, "web_2025/index.html")
+    total_members = models.Member.objects.filter(is_active=True).count()
+
+    return render(request, "web_2025/index.html", context={
+        'total_members': total_members
+    })
 
 
 def register(request):
