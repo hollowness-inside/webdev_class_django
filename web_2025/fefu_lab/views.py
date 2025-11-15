@@ -1,6 +1,5 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
-from django.views import View
 
 from . import forms
 from . import constants
@@ -63,12 +62,16 @@ def student_profile(request, student_id: int):
     if student_id > 100:
         return Http404("Student not found")
 
-    total_members = models.Member.objects.filter(is_active=True).count()
+    student = models.Member.objects.filter(id=student_id).first()
+    if student is not None:
+        print('STUDENTATATTATA', student)
+        everyone_else = models.Member.objects.exclude(id=student_id)
+        return render(request, "web_2025/student.html", context={
+            "student": student,
+            "everyone_else": everyone_else
+        })
 
-    if (context := constants.STUDENTS_DATA.get(student_id, None)) is not None:
-        return render(request, "web_2025/student.html", context=context)
-
-    return render(request, "web_2025/base-404.html", context={"word": "студента"})
+    return render(request, "web_2025/all-students.html", context={"word": "студента"})
 
 
 def course(request, course_slug):

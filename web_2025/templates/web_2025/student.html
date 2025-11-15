@@ -8,17 +8,19 @@
 {% block content %}
 <div class="card-view">
     <div class="student-card">
-        <img src="{{image}}" alt="{{name}}" />
+        <img src="/static/web_2025/smn.png" alt="{{student}}" />
         <div class="student-content">
-            <h1>{{name}}, {{year}} лет</h1>
+            <h1>{{student.first_name}} {{student.last_name}}
+                <br>ДР: {{student.birth_date}} лет
+            </h1>
             <p style="text-decoration: underline;">{{status}}</p>
         </div>
     </div>
 
     <div class="student-list">
-        <a href="/student/1/">Эдвард Каллен</a>
-        <a href="/student/2/">Белла Свон</a>
-        <a href="/student/3/">Аро Вольтури</a>
+        {% for other in everyone_else %}
+        <a href="/student/{{other.id}}/">{{other.first_name}} {{other.last_name}}</a>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

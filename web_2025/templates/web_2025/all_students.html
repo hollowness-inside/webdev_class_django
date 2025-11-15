@@ -1,0 +1,16 @@
+{% extends "./base_generic.html" %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'web_2025/css/student.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="student-card">
+    <img src="{{image}}" alt="{{name}}" />
+    <div class="student-content">
+        <h1>{{name}}, {{year}} лет</h1>
+        <p style="text-decoration: underline;">{{status}}</p>
+    </div>
+</div>
+{% endblock %}
