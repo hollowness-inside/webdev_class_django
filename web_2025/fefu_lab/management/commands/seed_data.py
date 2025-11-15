@@ -161,15 +161,16 @@ class Command(BaseCommand):
                 price=12000
             ),
             Course(
-                title='Боевые искусства бессмертных',
-                slug='immortal-combat',
-                description='Курс по вампирским боевым техникам. Использование сверхскорости, силы и регенерации в бою.',
+                title='Искусство обворожительной маскировки',
+                slug='charming-disguises',
+                description='Учимся мастерству притворяться обаятельной леди, будучи мужчиною. Помощь в принятии себя и своего гендера с юмором и стилем.',
                 duration=40,
                 volturian=volturians[2],
                 level='ADVANCED',
                 max_students=15,
                 price=18000
             ),
+
             Course(
                 title='Управление эмоциями',
                 slug='emotion-manipulation',

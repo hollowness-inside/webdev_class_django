@@ -80,7 +80,9 @@ def student_profile(request, student_id: int):
 
 
 def course(request, course_slug):
-    if (context := constants.COURSES_DATA.get(course_slug, None)) is not None:
-        return render(request, "web_2025/course.html", context=context)
+    course = models.Course.objects.filter(slug=course_slug).first()
+    if course is not None:
+        others = models.Course.objects.exclude(slug=course_slug)
+        return render(request, "web_2025/course.html", context={"course": course, "others": others})
 
     return render(request, "web_2025/base-404.html", context={"word": "курса"})

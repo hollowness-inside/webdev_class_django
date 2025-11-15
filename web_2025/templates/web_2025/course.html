@@ -14,29 +14,29 @@
     <div class="ability-card">
         <div class="ability-image">
             <img style="width: 5rem; max-height: 3rem; object-fit: cover; border-radius: 0.5rem;" src="{{image}}" />
-            <p style="font-size:xx-large; line-height: 0; font-weight: bolder;">{{level}}</p>
-            <p>{{name}}</p>
+            <p style="font-size:xx-large; line-height: 0; font-weight: bolder;">{{course.title}}</p>
         </div>
 
         <div class="ability-card-content">
-            <span>{{description}}</span>
+            <span>{{course.description}}</span>
             <hr>
 
             <div class="ability-card-card">
-                <h1>Носитель</h1>
-                <p>{{instructor}}</p>
+                <h1>Вольтурианец</h1>
+                <p>{{course.volturian.first_name}} {{course.volturian.last_name}} ({{course.volturian.ability}} ||
+                    {{course.volturian.degree}})</p>
             </div>
 
             <div class="ability-card-card">
                 <h1>Продолжительность</h1>
-                <p>{{duration}}</p>
+                <p>{{course.duration}} мин.</p>
             </div>
         </div>
     </div>
     <footer>
-        <a href="/course/telepathy/">Телепатия</a>
-        <a href="/course/mental-shield/">Ментальный щит</a>
-        <a href="/course/tactile-thought-projection/">Тактильная проекция мыслей</a>
+        {% for c in others %}
+        <a href="/course/{{c.slug}}/">{{c.title}}</a>
+        {% endfor %}
     </footer>
 </div>
 {% endblock %}
