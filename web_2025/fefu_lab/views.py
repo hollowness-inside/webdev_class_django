@@ -9,9 +9,16 @@ from . import models
 
 def index(request):
     total_members = models.Member.objects.filter(is_active=True).count()
+    total_volturians = models.Volturian.objects.filter(is_active=True).count()
+    total_courses = models.Course.objects.filter(is_active=True).count()
+    recent_courses = models.Course.objects.filter(
+        is_active=True).order_by('-created_at')[:3]
 
     return render(request, "web_2025/index.html", context={
-        'total_members': total_members
+        'total_members': total_members,
+        'total_volturians': total_volturians,
+        'total_courses': total_courses,
+        'recent_courses': recent_courses
     })
 
 
@@ -55,6 +62,8 @@ def feedback(request):
 def student_profile(request, student_id: int):
     if student_id > 100:
         return Http404("Student not found")
+
+    total_members = models.Member.objects.filter(is_active=True).count()
 
     if (context := constants.STUDENTS_DATA.get(student_id, None)) is not None:
         return render(request, "web_2025/student.html", context=context)

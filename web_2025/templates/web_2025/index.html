@@ -6,27 +6,48 @@
 {% endblock %}
 
 {% block content %}
-<div class="card index-card">
-    <p style="font-size: x-large; font-weight: bolder;">Добро пожаловать в Форкс, Аризона!</p>
-    <p>Население: 3000 + {{total_members}} человек </p>
-    <p>Я никогда не задумывалась о том, как умру, но умереть вместо того, кого любишь, — мне кажется, это хорошая
-        смерть. Я не жалею о решениях, которые привели меня сюда. Ведь они привели меня к Эдварду.</p>
+<div style="display: flex; flex-direction: row; gap: 30px;">
+    <div class="card index-card">
+        <p style="font-size: x-large; font-weight: bolder;">Добро пожаловать в Форкс, Аризона!</p>
+        <p>
+            Население: 3120 + {{total_members}} человек<br>
+            Вольтурианцев: {{total_volturians}}<br>
+            Курсов: {{total_courses}}
+        </p>
+        <p>Я никогда не задумывалась о том, как умру, но умереть вместо того, кого любишь, — мне кажется, это хорошая
+            смерть. Я не жалею о решениях, которые привели меня сюда. Ведь они привели меня к Эдварду.</p>
 
-    <div class="gallery">
-        <div class="item">
-            <img src="/static/web_2025/eternal-love.jpg" alt="Eternal Love">
-            <span>Eternal Love</span>
-        </div>
+        <div class="gallery">
+            <div class="item">
+                <img src="/static/web_2025/eternal-love.jpg" alt="Eternal Love">
+                <span>Eternal Love</span>
+            </div>
 
-        <div class="item">
-            <img src="/static/web_2025/dark-mystery.jpg" alt="Dark Mystery">
-            <span>Dark Mystery</span>
-        </div>
+            <div class="item">
+                <img src="/static/web_2025/dark-mystery.jpg" alt="Dark Mystery">
+                <span>Dark Mystery</span>
+            </div>
 
-        <div class="item">
-            <img src="/static/web_2025/wolves.jpg" alt="eternal love">
-            <span>Arousing Wolves</span>
+            <div class="item">
+                <img src="/static/web_2025/wolves.jpg" alt="eternal love">
+                <span>Arousing Wolves</span>
+            </div>
         </div>
+    </div>
+    <div style="width: 400px; display:flex;flex-direction: column;gap: 30px;">
+        <div style="font-size:x-large; font-weight:bolder;height: 30px;" class="card">
+            Последние курсы
+        </div>
+        {% for course in recent_courses %}
+        <a href="/course/{{course.slug}}/">
+            <div class="card" style="display:block;color:white;">
+                <p style="font-weight:bolder;font-size:large;text-align:right;">{{course.title}}</p>
+                <p>Продолжительность: {{course.duration}} мин.</p>
+                <p>Вольтурианец: {{course.volturian}} ({{course.volturian.degree}})</p>
+                <i>{{course.description}}</i>
+            </div>
+        </a>
+        {% endfor %}
     </div>
 </div>
 

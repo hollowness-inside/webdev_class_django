@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 class Member(models.Model):
     first_name = models.CharField(max_length=100, verbose_name='Имя')
     last_name = models.CharField(max_length=100, verbose_name='Фамилия')
@@ -82,7 +83,7 @@ class Course(models.Model):
     duration = models.PositiveIntegerField(
         verbose_name='Продолжительность (часы)')
     volturian = models.ForeignKey(Volturian, on_delete=models.SET_NULL, null=True, blank=True,
-                                   related_name='courses', verbose_name='Вольтурианец')
+                                  related_name='courses', verbose_name='Вольтурианец')
     level = models.CharField(
         max_length=20, choices=LEVEL_CHOICES, default='BEGINNER', verbose_name='Уровень')
     max_students = models.PositiveIntegerField(
