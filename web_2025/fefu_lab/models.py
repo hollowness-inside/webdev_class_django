@@ -1,26 +1,14 @@
 from django.db import models
 from django.urls import reverse
 
-
 class Member(models.Model):
-    CLAN_CHOICES = [
-        ('XX', 'бродяга')
-        ('OL', 'Олимпийский клан'),
-        ('VL', 'Клан Вольтури'),
-        ('DN', 'Клан Денали'),
-        ('RO', 'Румынский клан'),
-        ('IR', 'Ирландский клан'),
-        ('MX', 'Мексиканский клан'),
-        ('FR', 'Французский клан')
-    ]
-
     first_name = models.CharField(max_length=100, verbose_name='Имя')
     last_name = models.CharField(max_length=100, verbose_name='Фамилия')
     email = models.EmailField(unique=True, verbose_name='Email')
     birth_date = models.DateField(
         null=True, blank=True, verbose_name='Дата рождения')
     clan = models.CharField(
-        max_length=3, choices=CLAN_CHOICES, default='XX', verbose_name='Клан')
+        max_length=3, default='XX', verbose_name='Клан')
     is_active = models.BooleanField(default=True, verbose_name='Активен')
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name='Дата создания')
@@ -70,7 +58,7 @@ class Volturian(models.Model):
         verbose_name = 'Покровитель'
         verbose_name_plural = 'Покровитель'
         ordering = ['last_name', 'first_name']
-        db_table = 'volturi'
+        db_table = 'volturian'
 
     def __str__(self):
         return f"{self.last_name} {self.first_name}"
@@ -93,8 +81,8 @@ class Course(models.Model):
     description = models.TextField(verbose_name='Описание')
     duration = models.PositiveIntegerField(
         verbose_name='Продолжительность (часы)')
-    instructor = models.ForeignKey(Volturian, on_delete=models.SET_NULL, null=True, blank=True,
-                                   related_name='courses', verbose_name='Преподаватель')
+    volturian = models.ForeignKey(Volturian, on_delete=models.SET_NULL, null=True, blank=True,
+                                   related_name='courses', verbose_name='Вольтурианец')
     level = models.CharField(
         max_length=20, choices=LEVEL_CHOICES, default='BEGINNER', verbose_name='Уровень')
     max_students = models.PositiveIntegerField(
