@@ -23,9 +23,9 @@ class RegistrationForm(forms.Form):
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
-        if len(username) < 4:
+        if len(username) < 2:
             raise forms.ValidationError(
-                "Имя должно содержать минимум 4 символа")
+                "Имя должно содержать минимум 2 символа")
         return username
 
 
@@ -46,9 +46,9 @@ class LoginForm(forms.Form):
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
-        if len(username) < 4:
+        if len(username) < 2:
             raise forms.ValidationError(
-                "Имя должно содержать минимум 4 символа")
+                "Имя должно содержать минимум 2 символа")
         return username
 
 
