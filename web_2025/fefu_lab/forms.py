@@ -1,4 +1,6 @@
 from django import forms
+from . import models
+from hashlib import sha512
 
 
 class RegistrationForm(forms.Form):
@@ -23,10 +25,29 @@ class RegistrationForm(forms.Form):
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
+
         if len(username) < 2:
             raise forms.ValidationError(
                 "Имя должно содержать минимум 2 символа")
+
         return username
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if models.Member.objects.filter(email=email).exists():
+            raise forms.ValidationError("Данная почта уже используется")
+
+        return email
+
+    def clean_password(self):
+        password: str = self.cleaned_data.get('password')
+        password = password.encode('utf8')
+        return str(sha512(password).digest())
+
+    def clean_password_confirm(self):
+        if self.data.get('password') != self.data.get('password_confirm'):
+            raise forms.ValidationError("Пароли не совпадают")
+        return True
 
 
 class LoginForm(forms.Form):
@@ -50,6 +71,18 @@ class LoginForm(forms.Form):
             raise forms.ValidationError(
                 "Имя должно содержать минимум 2 символа")
         return username
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if not models.Member.objects.filter(email=email).exists():
+            raise forms.ValidationError("Данная почта нам не знакома")
+
+        return email
+
+    def clean_password(self):
+        password: str = self.cleaned_data.get('password')
+        password = password.encode('utf8')
+        return str(sha512(password).digest())
 
 
 class FeedbackForm(forms.Form):

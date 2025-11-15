@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from fefu_lab.models import Member, Volturian, Course, Enrollment
 from datetime import date
+from hashlib import sha512
 
 
 class Command(BaseCommand):
@@ -65,7 +66,8 @@ class Command(BaseCommand):
                 last_name='Свон',
                 email='bella.swan@forks.com',
                 birth_date=date(1987, 9, 13),
-                clan='CUL'
+                clan='CUL',
+                password=str(sha512(b"bella").digest())
             ),
             Member(
                 image='/static/web_2025/student/edward.jpg',
@@ -73,7 +75,8 @@ class Command(BaseCommand):
                 last_name='Каллен',
                 email='edward.cullen@forks.com',
                 birth_date=date(1901, 6, 20),
-                clan='CUL'
+                clan='CUL',
+                password=str(sha512(b"edward").digest())
             ),
             Member(
                 image='/static/web_2025/student/alice.webp',
@@ -81,7 +84,8 @@ class Command(BaseCommand):
                 last_name='Каллен',
                 email='alice.cullen@forks.com',
                 birth_date=date(1901, 1, 1),
-                clan='CUL'
+                clan='CUL',
+                password=str(sha512(b"alice").digest())
             ),
             Member(
                 image='/static/web_2025/student/jasper.jpg',
@@ -89,7 +93,8 @@ class Command(BaseCommand):
                 last_name='Хейл',
                 email='jasper.hale@forks.com',
                 birth_date=date(1844, 1, 1),
-                clan='CUL'
+                clan='CUL',
+                password=str(sha512(b"jasper").digest())
             ),
             Member(
                 image='/static/web_2025/student/rosalie.webp',
@@ -97,7 +102,8 @@ class Command(BaseCommand):
                 last_name='Хейл',
                 email='rosalie.hale@forks.com',
                 birth_date=date(1915, 1, 1),
-                clan='CUL'
+                clan='CUL',
+                password=str(sha512(b"rosalie").digest())
             ),
             Member(
                 image='/static/web_2025/student/emmet.jpg',
@@ -105,7 +111,8 @@ class Command(BaseCommand):
                 last_name='Каллен',
                 email='emmett.cullen@forks.com',
                 birth_date=date(1915, 1, 1),
-                clan='CUL'
+                clan='CUL',
+                password=str(sha512(b"emmet").digest())
             ),
             Member(
                 image='/static/web_2025/student/jacob.webp',
@@ -113,7 +120,8 @@ class Command(BaseCommand):
                 last_name='Блэк',
                 email='jacob.black@lapush.com',
                 birth_date=date(1990, 1, 14),
-                clan='QUI'
+                clan='QUI',
+                password=str(sha512(b"jacob").digest())
             ),
             Member(
                 image='/static/web_2025/student/seth.jpg',
@@ -121,7 +129,8 @@ class Command(BaseCommand):
                 last_name='Клируотер',
                 email='seth.clearwater@lapush.com',
                 birth_date=date(1992, 1, 1),
-                clan='QUI'
+                clan='QUI',
+                password=str(sha512(b"seth").digest())
             ),
         ]
 

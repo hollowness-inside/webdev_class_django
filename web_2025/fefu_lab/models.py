@@ -6,6 +6,7 @@ class Member(models.Model):
     first_name = models.CharField(max_length=100, verbose_name='Имя')
     last_name = models.CharField(max_length=100, verbose_name='Фамилия')
     email = models.EmailField(unique=True, verbose_name='Email')
+    password = models.CharField(verbose_name="Пароль")
     birth_date = models.DateField(
         null=True, blank=True, verbose_name='Дата рождения')
     clan = models.CharField(
@@ -21,7 +22,7 @@ class Member(models.Model):
         verbose_name = 'Мембер'
         verbose_name_plural = 'Мемберы'
         ordering = ['last_name', 'first_name']
-        db_table = 'members'
+        db_table = 'member'
 
     def __str__(self):
         return f"{self.last_name} {self.first_name}"

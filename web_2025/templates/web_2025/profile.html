@@ -1,0 +1,17 @@
+{% extends "./base_generic.html" %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'web_2025/css/student.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Добро пожаловать, {{data.email}}</h1>
+    <p>
+        Ваше имя пользователя: <b>{{data.first_name}} {{data.last_name}}</b>
+        <br>
+        Ваша дата рождения: <b>{{data.birth_date}}</b>
+    </p>
+</div>
+{% endblock %}

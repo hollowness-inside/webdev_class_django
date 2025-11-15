@@ -1,8 +1,8 @@
+from datetime import date
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 
 from . import forms
-from . import constants
 from . import models
 
 
@@ -25,7 +25,17 @@ def register(request):
     if request.method == 'POST':
         form = forms.RegistrationForm(request.POST)
         if form.is_valid():
-            return HttpResponse("Correct")
+            data = models.Member.objects.create(
+                first_name="New",
+                last_name="User",
+                email=form.cleaned_data["email"],
+                birth_date=date(year=2025, month=1, day=1),
+                clan="CUL",
+                is_active=True,
+            )
+            data.save()
+
+            return render(request, 'web_2025/profile.html', context={"data": data})
     else:
         form = forms.RegistrationForm()
 
@@ -36,7 +46,10 @@ def login(request):
     if request.method == 'POST':
         form = forms.LoginForm(request.POST)
         if form.is_valid():
-            return HttpResponse("Correct")
+            data = models.Member.objects.filter(
+                email=form.cleaned_data['email']).first()
+            print(form.cleaned_data)
+            return render(request, 'web_2025/profile.html', context={"data": data})
     else:
         form = forms.LoginForm()
 
@@ -51,7 +64,7 @@ def feedback(request):
     if request.method == 'POST':
         form = forms.FeedbackForm(request.POST)
         if form.is_valid():
-            return HttpResponse("Correct")
+            return HttpResponse("Success")
     else:
         form = forms.FeedbackForm()
 
