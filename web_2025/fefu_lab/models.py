@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 
-class UserProfile(models.Model):
+class Member(models.Model):
     CLAN_CHOICES = [
         ('XX', 'бродяга')
         ('OL', 'Олимпийский клан'),
@@ -47,7 +47,7 @@ class UserProfile(models.Model):
         return dict(self.CLAN_CHOICES).get(self.clan, 'Неизвестно')
 
 
-class Volturi(models.Model):
+class Volturian(models.Model):
     DEGREE_CHOICES = [
         ('NEWBORN', 'Новорождённый (начиная с 2000-х)'),
         ('VICTORIAN', 'Викторианское время (1800-х)'),
@@ -93,7 +93,7 @@ class Course(models.Model):
     description = models.TextField(verbose_name='Описание')
     duration = models.PositiveIntegerField(
         verbose_name='Продолжительность (часы)')
-    instructor = models.ForeignKey(Volturi, on_delete=models.SET_NULL, null=True, blank=True,
+    instructor = models.ForeignKey(Volturian, on_delete=models.SET_NULL, null=True, blank=True,
                                    related_name='courses', verbose_name='Преподаватель')
     level = models.CharField(
         max_length=20, choices=LEVEL_CHOICES, default='BEGINNER', verbose_name='Уровень')
@@ -128,7 +128,7 @@ class Enrollment(models.Model):
     ]
 
     student = models.ForeignKey(
-        UserProfile, on_delete=models.CASCADE, related_name='enrollments', verbose_name='Студент')
+        Member, on_delete=models.CASCADE, related_name='enrollments', verbose_name='Студент')
     course = models.ForeignKey(
         Course, on_delete=models.CASCADE, related_name='enrollments', verbose_name='Курс')
     enrolled_at = models.DateTimeField(
