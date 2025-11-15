@@ -58,6 +58,12 @@ def feedback(request):
     return render(request, 'web_2025/feedback.html', context={'form': form})
 
 
+CLANS = {
+    'CUL': "Олимпийский клан",
+    'QUI': "Квидитч клан"
+}
+
+
 def student_profile(request, student_id: int):
     if student_id > 100:
         return Http404("Student not found")
@@ -65,8 +71,10 @@ def student_profile(request, student_id: int):
     student = models.Member.objects.filter(id=student_id).first()
     if student is not None:
         everyone_else = models.Member.objects.exclude(id=student_id)
+        clan = CLANS.get(student.clan, 'Неопознанный клан')
         return render(request, "web_2025/student.html", context={
             "student": student,
+            "clan": clan,
             "everyone_else": everyone_else
         })
 
