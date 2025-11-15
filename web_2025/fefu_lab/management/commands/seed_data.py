@@ -1,7 +1,6 @@
 from django.core.management.base import BaseCommand
-from django.utils import timezone
 from fefu_lab.models import Member, Volturian, Course, Enrollment
-from datetime import date, timedelta
+from datetime import date
 
 
 class Command(BaseCommand):
